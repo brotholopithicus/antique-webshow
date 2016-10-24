@@ -1,6 +1,6 @@
 <template>
 <div id="home">
-    <div class="container">
+    <div class="acontainer">
         <div class="post" v-for="post in posts">
             <div class="post-main-content">
                 <h1>{{post.title}}</h1>
@@ -47,7 +47,7 @@ export default {
     margin-top: 20px;
 }
 
-.container {
+.acontainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

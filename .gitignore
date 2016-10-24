@@ -1,5 +1,5 @@
 .DS_Store
 node_modules
-./src/node_modules
-./src/dist/build.js
-./src/dist/build.css
+src/node_modules
+src/dist/build.js
+src/dist/build.css

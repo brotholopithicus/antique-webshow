@@ -24,12 +24,14 @@
 </div>
 </template>
 
-<script scoped>
+<script>
+
 export default {
     name: 'app'
 }
 </script>
 <style>
+
 * {
     box-sizing: border-box;
 }

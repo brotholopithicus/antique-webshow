@@ -1,19 +1,19 @@
 <template>
 <div id="allPostsMap">
     <div id="map">
-
     </div>
 </div>
 </template>
 
 <script>
 import L from 'leaflet';
+
 export default {
     name: 'allPostsMap',
     data() {
         return {
             posts: [],
-            userLocation: null,
+            userLocation: null
         }
     },
     created() {
@@ -59,7 +59,7 @@ export default {
                     radius: 500
                 }).addTo(mymap);
 
-                circle.bindPopup('Your Current Location');
+                circle.bindPopup('Your Current Location').openPopup();
             });
             console.log('map loading complete');
         },

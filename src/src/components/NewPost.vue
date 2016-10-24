@@ -29,8 +29,8 @@
         <div class="input-group">
             <label for="state">State: </label>
             <select v-model="post.state" name="state">
-              <option v-for="state in states" :value="state">
-              {{state}}
+              <option v-for="state in states" :value="state.value">
+              {{state.name}}
             </option>
           </select>
         </div>
@@ -43,8 +43,6 @@
 </template>
 
 <script>
-import fs from 'fs';
-
 export default {
     name: 'hello',
     data() {
@@ -58,7 +56,184 @@ export default {
                 city: null,
                 state: null
             },
-            states: []
+            states: [{
+                name: 'Alabama',
+                value: 'AL'
+            }, {
+                name: 'Alaska',
+                value: 'AK'
+            }, {
+                name: 'American Samoa',
+                value: 'AS'
+            }, {
+                name: 'Arizona',
+                value: 'AZ'
+            }, {
+                name: 'Arkansas',
+                value: 'AR'
+            }, {
+                name: 'California',
+                value: 'CA'
+            }, {
+                name: 'Colorado',
+                value: 'CO'
+            }, {
+                name: 'Connecticut',
+                value: 'CT'
+            }, {
+                name: 'Delaware',
+                value: 'DE'
+            }, {
+                name: 'District Of Columbia',
+                value: 'DC'
+            }, {
+                name: 'Federated States Of Micronesia',
+                value: 'FM'
+            }, {
+                name: 'Florida',
+                value: 'FL'
+            }, {
+                name: 'Georgia',
+                value: 'GA'
+            }, {
+                name: 'Guam',
+                value: 'GU'
+            }, {
+                name: 'Hawaii',
+                value: 'HI'
+            }, {
+                name: 'Idaho',
+                value: 'ID'
+            }, {
+                name: 'Illinois',
+                value: 'IL'
+            }, {
+                name: 'Indiana',
+                value: 'IN'
+            }, {
+                name: 'Iowa',
+                value: 'IA'
+            }, {
+                name: 'Kansas',
+                value: 'KS'
+            }, {
+                name: 'Kentucky',
+                value: 'KY'
+            }, {
+                name: 'Louisiana',
+                value: 'LA'
+            }, {
+                name: 'Maine',
+                value: 'ME'
+            }, {
+                name: 'Marshall Islands',
+                value: 'MH'
+            }, {
+                name: 'Maryland',
+                value: 'MD'
+            }, {
+                name: 'Massachusetts',
+                value: 'MA'
+            }, {
+                name: 'Michigan',
+                value: 'MI'
+            }, {
+                name: 'Minnesota',
+                value: 'MN'
+            }, {
+                name: 'Mississippi',
+                value: 'MS'
+            }, {
+                name: 'Missouri',
+                value: 'MO'
+            }, {
+                name: 'Montana',
+                value: 'MT'
+            }, {
+                name: 'Nebraska',
+                value: 'NE'
+            }, {
+                name: 'Nevada',
+                value: 'NV'
+            }, {
+                name: 'New Hampshire',
+                value: 'NH'
+            }, {
+                name: 'New Jersey',
+                value: 'NJ'
+            }, {
+                name: 'New Mexico',
+                value: 'NM'
+            }, {
+                name: 'New York',
+                value: 'NY'
+            }, {
+                name: 'North Carolina',
+                value: 'NC'
+            }, {
+                name: 'North Dakota',
+                value: 'ND'
+            }, {
+                name: 'Northern Mariana Islands',
+                value: 'MP'
+            }, {
+                name: 'Ohio',
+                value: 'OH'
+            }, {
+                name: 'Oklahoma',
+                value: 'OK'
+            }, {
+                name: 'Oregon',
+                value: 'OR'
+            }, {
+                name: 'Palau',
+                value: 'PW'
+            }, {
+                name: 'Pennsylvania',
+                value: 'PA'
+            }, {
+                name: 'Puerto Rico',
+                value: 'PR'
+            }, {
+                name: 'Rhode Island',
+                value: 'RI'
+            }, {
+                name: 'South Carolina',
+                value: 'SC'
+            }, {
+                name: 'South Dakota',
+                value: 'SD'
+            }, {
+                name: 'Tennessee',
+                value: 'TN'
+            }, {
+                name: 'Texas',
+                value: 'TX'
+            }, {
+                name: 'Utah',
+                value: 'UT'
+            }, {
+                name: 'Vermont',
+                value: 'VT'
+            }, {
+                name: 'Virgin Islands',
+                value: 'VI'
+            }, {
+                name: 'Virginia',
+                value: 'VA'
+            }, {
+                name: 'Washington',
+                value: 'WA'
+            }, {
+                name: 'West Virginia',
+                value: 'WV'
+            }, {
+                name: 'Wisconsin',
+                value: 'WI'
+            }, {
+                name: 'Wyoming',
+                value: 'WY'
+            }]
         }
     },
     methods: {
@@ -70,70 +245,6 @@ export default {
                     });
                 })
         }
-    },
-    created() {
-        let states = [
-            'AL',
-            'AK',
-            'AS',
-            'AZ',
-            'AR',
-            'CA',
-            'CO',
-            'CT',
-            'DE',
-            'DC',
-            'FM',
-            'FL',
-            'GA',
-            'GU',
-            'HI',
-            'ID',
-            'IL',
-            'IN',
-            'IA',
-            'KS',
-            'KY',
-            'LA',
-            'ME',
-            'MH',
-            'MD',
-            'MA',
-            'MI',
-            'MN',
-            'MS',
-            'MO',
-            'MT',
-            'NE',
-            'NV',
-            'NH',
-            'NJ',
-            'NM',
-            'NY',
-            'NC',
-            'ND',
-            'MP',
-            'OH',
-            'OK',
-            'OR',
-            'PW',
-            'PA',
-            'PR',
-            'RI',
-            'SC',
-            'SD',
-            'TN',
-            'TX',
-            'UT',
-            'VT',
-            'VI',
-            'VA',
-            'WA',
-            'WV',
-            'WI',
-            'WY'
-        ];
-        states.forEach(state => this.states.push(state));
     }
 }
 </script>
