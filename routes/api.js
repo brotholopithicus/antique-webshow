@@ -12,7 +12,7 @@ router.route('/posts')
         })
     })
     .post((req, res) => {
-        let addressStr = `${req.body.address}, ${req.body.city}, ${req.body.state}`;
+        let addressStr = `${req.body.street}, ${req.body.city}, ${req.body.state}`;
         geocoder.geocode(addressStr, (err, response) => {
             if (err) throw err;
             let location = response.results[0].geometry.location;
@@ -28,6 +28,11 @@ router.route('/posts')
                 location: {
                     lat: coords.latitude,
                     lng: coords.longitude
+                },
+                address: {
+                    street: req.body.address,
+                    city: req.body.city,
+                    state: req.body.state
                 }
             }
             let post = new Post(newPostObject);

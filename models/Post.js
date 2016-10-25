@@ -7,17 +7,18 @@ const postSchema = new Schema({
     date: { type: Date, required: true },
     time: { type: String },
     updated: { type: Date, default: Date.now() },
+    address: {
+        street: { type: String },
+        city: { type: String, required: true },
+        state: { type: String, required: true }
+    },
     location: {
         lat: { type: Number, required: true },
         lng: { type: Number, requied: true }
-    }
+    },
+    image: { type: String }
 });
 
 const Post = mongoose.model('Post', postSchema);
 
 module.exports = Post;
-
-/* TO BE ADDED
-address: { type: String },
-tags: [{ text: { type: String } }]
-*/

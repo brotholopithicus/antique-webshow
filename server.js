@@ -29,6 +29,7 @@ db.once('open', () => {
 /* ===== middleware config ===== */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, 'src')));
 
 /* ===== route config ===== */

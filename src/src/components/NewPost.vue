@@ -1,44 +1,83 @@
 <template>
 <div id="newform">
-    <h1>New Post</h1>
-    <div class="input">
-        <div class="input-group">
-            <label for="title">Title: </label>
-            <input v-model="post.title" placeholder="title" type="text" />
-        </div>
-        <div class="input-group">
-            <label for="description">Description: </label>
-            <input v-model="post.description" placeholder="description" type="text" />
-        </div>
-        <div class="input-group">
-            <label for="date">Date: </label>
-            <input v-model="post.date" type="date" />
-        </div>
-        <div class="input-group">
-            <label for="time">Time: </label>
-            <input v-model="post.time" type="time" />
-        </div>
-        <div class="input-group">
-            <label for="address">Address: </label>
-            <input v-model="post.address" type="text" placeholder="address" />
-        </div>
-        <div class="input-group">
-            <label for="city">City: </label>
-            <input v-model="post.city" type="text" placeholder="city" />
-        </div>
-        <div class="input-group">
-            <label for="state">State: </label>
-            <select v-model="post.state" name="state">
-              <option v-for="state in states" :value="state.value">
-              {{state.name}}
-            </option>
-          </select>
-        </div>
-        <div class="input-group">
-            <button @click="submitPost">Submit</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 offset-xs-2">
+                <div class="card">
+                    <div class="card-header text-xs-center">
+                        <h2>New Post Form</h2>
+                    </div>
+                    <div class="card-block">
+                        <div class="input-group row">
+                            <div class="col-xs-2 col-form-label">
+                                <label for="title">Title: </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <input class="form-control" v-model="post.title" placeholder="title" type="text" />
+                            </div>
+                        </div>
+                        <div class="input-group row">
+                            <div class="col-xs-2 col-form-label">
+                                <label for="description">Description: </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <textarea class="form-control" v-model="post.description" placeholder="description" type="text"></textarea>
+                            </div>
+                        </div>
+                        <div class="input-group row">
+                            <div class="col-xs-2 col-form-label">
+                                <label for="date">Date: </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <input class="form-control" v-model="post.date" type="date" />
+                            </div>
+                        </div>
+                        <div class="input-group row">
+                            <div class="col-xs-2 col-form-label">
+                                <label for="time">Time: </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <input class="form-control" v-model="post.time" type="time" />
+                            </div>
+                        </div>
+                        <div class="input-group row">
+                            <div class="col-xs-2 col-form-label">
+                                <label for="street">Street: </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <input class="form-control" v-model="post.street" type="text" placeholder="street" />
+                            </div>
+                        </div>
+                        <div class="input-group row">
+                            <div class="col-xs-2 col-form-label">
+                                <label for="city">City: </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <input class="form-control" v-model="post.city" type="text" placeholder="city" />
+                            </div>
+                        </div>
+                        <div class="input-group row">
+                            <div class="col-xs-2 col-form-label">
+                                <label for="state">State: </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <select class="form-control" v-model="post.state" name="state">
+                                    <option v-for="state in states" :value="state.value">{{state.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="input-group row">
+                          <div class="col-xs-2 offset-xs-5">
+                              <button class="btn btn-primary" @click="submitPost">Submit</button>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
 </template>
 
@@ -52,7 +91,7 @@ export default {
                 description: null,
                 date: null,
                 time: null,
-                address: null,
+                street: null,
                 city: null,
                 state: null
             },
@@ -250,60 +289,7 @@ export default {
 </script>
 
 <style scoped>
-#newform {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-    font-size: 18px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin: 2em auto;
-}
-
-.input-group label {
-    width: 10%;
-    text-align: left;
-}
-
-.input-group input,
-.input-group select {
-    width: 90%;
-}
-
-.input-group label,
-.input-group input,
-.input-group select {
-    line-height: 1.6;
-}
-
-.input-group button {
-    margin-top: 1em;
-}
-
-h1,
-h2 {
-    font-weight: normal;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
+.card {
+  margin-top: 2em;
 }
 </style>

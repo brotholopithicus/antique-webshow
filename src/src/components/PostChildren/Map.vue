@@ -55,37 +55,7 @@ export default {
 <style scoped>
 @import url('../../../node_modules/leaflet/dist/leaflet.css');
 #mymap {
-    height: 400px;
-    margin: 0 auto;
-    width: 90%;
-}
-
-#map {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+    height: 500px;
     width: 100%;
-    height: 100%;
-}
-
-h1,
-h2 {
-    font-weight: normal;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
 }
 </style>

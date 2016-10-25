@@ -1,8 +1,21 @@
 <template>
 <div id="allPostsMap">
-    <div id="map">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="list-group">
+                    <div class="list-group-item" v-for="post in posts">
+                        <h5 class="list-group-item-heading">{{post.title}}</h5>
+                        <p class="list-group-item-text">{{post.address.street}}</p>
+                        <p class="list-group-item-text">{{post.address.city}}, {{post.address.state}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <div id="map"></div>
+            </div>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -82,38 +95,13 @@ export default {
 
 <style scoped>
 @import url('../../../node_modules/leaflet/dist/leaflet.css');
-#allPostsMap {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+.row {
+    padding-top: 2em;
 }
 
 #map {
     width: 100%;
-    margin: 0 auto;
-    height: 70vh;
+    height: 500px;
     background: rgba(0, 0, 0, 0.5);
-}
-
-h1,
-h2 {
-    font-weight: normal;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
 }
 </style>

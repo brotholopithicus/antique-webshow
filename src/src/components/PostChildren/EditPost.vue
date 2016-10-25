@@ -1,19 +1,31 @@
 <template>
 <div id="editPost">
-    <div class="input-group">
-        <label for="editTitle">Title: </label>
-        <input id="editTitle" type="text" v-model="post.title" :placeholder="post.title" />
+    <div class="input-group-lg row">
+        <div class="col-xs-2 col-form-label">
+            <label for="editTitle">Title: </label>
+        </div>
+        <div class="col-xs-10">
+            <input class="form-control" id="editTitle" type="text" v-model="post.title" :placeholder="post.title" />
+        </div>
     </div>
-    <div class="input-group">
-        <label for="editDesc">Description: </label>
-        <input id="editDesc" type="text" v-model="post.description" :placeholder="post.description" />
+    <div class="input-group-lg row">
+        <div class="col-xs-2 col-form-label">
+            <label for="editDesc">Description: </label>
+        </div>
+        <div class="col-xs-10">
+            <textarea class="form-control" id="editDesc" type="text" v-model="post.description" :placeholder="post.description"></textarea>
+        </div>
     </div>
-    <div class="input-group">
-        <label for="editDate">Date: </label>
-        <input id="editDate" type="date" v-model="post.date" :placeholder="post.date" />
+    <div class="input-group-lg row">
+        <div class="col-xs-2 col-form-label">
+            <label for="editDate">Date: </label>
+        </div>
+        <div class="col-xs-10">
+            <input class="form-control" id="editDate" type="date" v-model="post.date" :placeholder="post.date" />
+        </div>
     </div>
-    <div class="input-group">
-        <button @click="submitChanges">Submit</button>
+    <div class="input-group row">
+        <button class="btn btn-default" @click="submitChanges">Submit</button>
     </div>
 </div>
 </template>

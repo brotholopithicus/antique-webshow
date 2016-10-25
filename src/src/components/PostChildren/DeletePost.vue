@@ -1,8 +1,8 @@
 <template>
-<div id="deletePost">
+<div id="deletePost" class="text-xs-center">
     <h2>Are you sure you want to remove this post?</h2>
-    <button @click="deletePost">Yes</button>
-    <button>No</button>
+    <button class="btn btn-default"@click="deletePost">Yes</button>
+    <button class="btn btn-default">No</button>
 </div>
 </template>
 
@@ -32,31 +32,7 @@ export default {
 </script>
 
 <style scoped>
-#editPost {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-
-h1,
-h2 {
-    font-weight: normal;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
+#deletePost {
+  font-family: "Segoe UI";
 }
 </style>
