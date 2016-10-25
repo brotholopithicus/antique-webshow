@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="list-group">
-                    <div class="list-group-item" v-for="post in posts">
+                    <div class="list-group-item list-group-item-action" v-for="post in posts" @click="panToThis(post)">
                         <h5 class="list-group-item-heading">{{post.title}}</h5>
                         <p class="list-group-item-text">{{post.address.street}}</p>
                         <p class="list-group-item-text">{{post.address.city}}, {{post.address.state}}</p>
@@ -26,6 +26,7 @@ export default {
     data() {
         return {
             posts: [],
+            map: null,
             userLocation: null
         }
     },
@@ -43,7 +44,7 @@ export default {
             let position = [firstPost.location.lat, firstPost.location.lng];
 
             let mymap = L.map('map').setView(position, 10);
-
+            this.map = mymap;
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                 attribution: 'Awesome Sauce',
                 maxZoom: 18,
@@ -55,7 +56,8 @@ export default {
                 let p = [post.location.lat, post.location.lng];
                 let postMarker = L.marker(p).addTo(mymap);
                 let date = (new Date(post.date)).toDateString();
-                postMarker.bindPopup(`<b>${post.title}</b><p>${post.description}</p><p>${date}</p>`);
+                postMarker.bindPopup(`<b>${post.title}</b><p>${post.address.street}<br />${post.address.city}, ${post.address.state}</p><p>${date}</p>`);
+                post.marker = postMarker;
             });
 
             this.geoLocateUser((err, result) => {
@@ -63,7 +65,7 @@ export default {
                 let userLocation = [result.latitude, result.longitude];
                 mymap.panTo(userLocation, {
                     animate: true,
-                    duration: 0.25
+                    duration: 0.5
                 });
                 let circle = L.circle(userLocation, {
                     color: 'red',
@@ -88,6 +90,14 @@ export default {
             } else {
                 cb(new Error('geolocation not active'));
             }
+        },
+        panToThis(post) {
+            let coords = [post.location.lat, post.location.lng];
+            this.map.panTo(coords, {
+                animate: true,
+                duration: 0.5
+            });
+            post.marker.openPopup();
         }
     }
 }
@@ -98,7 +108,10 @@ export default {
 .row {
     padding-top: 2em;
 }
-
+.list-group {
+  max-height: 500px;
+  overflow: scroll;
+}
 #map {
     width: 100%;
     height: 500px;

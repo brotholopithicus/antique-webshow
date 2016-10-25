@@ -4,11 +4,11 @@
         <h1 class="display-4 text-xs-center">{{post.title}}</h1>
         <div class="row">
             <div class="col-xs-1"></div>
-            <div class="col-xs-5">
-                <blockquote class="blockquote">
+            <div class="col-xs-5 text-xs-center" id="main-content">
+              <h4>{{post.date | date}}</h4>
+                <p class="text-xs-center">
                     {{post.description}}
-                </blockquote>
-                <h4 class="tag tag-default">{{post.date | date}}</h4>
+                </p>
                 <div class="row">
                     <div class="col-xs-6 offset-xs-3">
                         <ul class="nav nav-pills">
@@ -76,5 +76,8 @@ export default {
 </script>
 
 <style scoped>
-
+#main-content {
+  height: 500px;
+  margin-top: 5em;
+}
 </style>

@@ -36,7 +36,7 @@ export default {
             let postMarker = L.marker(position).addTo(mymap);
             let date = (new Date(this.post.date)).toDateString();
             // popup should have event location, time, and date
-            postMarker.bindPopup(`<b>${this.post.title}</b><p>${this.post.description}</p><p>${date}</p>`).openPopup();
+            postMarker.bindPopup(`<b>${this.post.title}</b><p>${this.post.address.street}<br />${this.post.address.city}, ${this.post.address.state}</p><p>${date}</p>`).openPopup();
 
         }
     },
