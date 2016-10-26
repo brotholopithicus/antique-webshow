@@ -12,7 +12,7 @@
                 <router-link class="nav-link" to='/map'>Event Map</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/users">User List</router-link>
+                <router-link class="nav-link" to="/user">Login / Signup</router-link>
             </li>
         </ul>
     </nav>

@@ -8,8 +8,9 @@ import App from './App.vue';
 import Home from './components/Home.vue';
 import NewPost from './components/NewPost.vue';
 import Post from './components/Post.vue';
-import Users from './components/Users.vue';
 import AllPostsMap from './components/Map.vue';
+
+import LoginSignup from './components/LoginSignup.vue';
 
 // child view components
 import PostMap from './components/PostChildren/Map.vue';
@@ -25,7 +26,7 @@ const routes = [
     { path: '/', name: 'home', component: Home },
     { path: '/new', component: NewPost },
     { path: '/map', component: AllPostsMap },
-    { path: '/users', component: Users },
+    { path: '/user', component: LoginSignup },
     {
         path: '/post/:id',
         name: 'post',

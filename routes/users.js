@@ -10,9 +10,33 @@ router.route('/')
             if (err) throw err;
             res.json(users);
         })
-    })
-    // create a new user
-    .post((req, res) => {})
+    });
+
+// create a new user
+router.post('/signup', (req, res) => {
+    let newUser = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    }
+    let user = new User(newUser);
+    user.encryptPassword();
+    user.save((err) => res.json({ message: err }));
+    req.session.user = user;
+});
+router.post('/login', (req, res, next) => {
+    let candidate = req.body.password;
+    User.find({ email: req.body.email }, (err, user) => {
+        if (err) return next(err);
+        user.comparePassword(candidate, (err, result) => {
+            if (err) return next(err);
+            if (result) {
+                req.session.user = user;
+            }
+            next();
+        });
+    });
+});
 
 router.route('/:id')
     // get single user by id

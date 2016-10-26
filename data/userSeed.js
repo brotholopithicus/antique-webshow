@@ -14,6 +14,7 @@ for (let i = 0; i < NUM_SEED_USERS; i++) {
         password: faker.internet.password()
     }
     let user = new User(newUserObject);
+    user.encryptPassword();
     user.save((err, user) => {
         if (err) throw err;
         console.log('user saved', user.name);
