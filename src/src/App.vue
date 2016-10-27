@@ -11,20 +11,31 @@
             <li class="nav-item">
                 <router-link class="nav-link" to='/map'>Event Map</router-link>
             </li>
-            <li class="nav-item">
-                <router-link class="nav-link" to="/user">Login / Signup</router-link>
+            <li class="nav-item float-xs-right">
+                <a class="nav-link" @click="showLoginSignup = true">Login / Signup</a>
             </li>
         </ul>
     </nav>
     <div class="view-container">
+        <LoginSignup v-if="showLoginSignup" @close="showLoginSignup = false"></LoginSignup>
         <router-view></router-view>
     </div>
 </div>
 </template>
 
 <script>
+import LoginSignup from './components/LoginSignup.vue';
+
 export default {
-    name: 'app'
+    name: 'app',
+    components: {
+        LoginSignup
+    },
+    data() {
+        return {
+            showLoginSignup: false
+        }
+    }
 }
 </script>
 <style>
@@ -35,7 +46,11 @@ body {
 .view-container {
     margin-top: 4em;
 }
+
 .router-link-active {
-  color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+}
+.nav-item {
+  cursor: pointer;
 }
 </style>
