@@ -1,9 +1,9 @@
 <template>
 <div id="login-signup">
     <transition name="modal">
-        <div class="modal-mask" @click="$emit('close')">
+        <div class="modal-mask">
             <div class="modal-wrapper">
-                <div class="modal-container" @click.stop>
+                <div class="modal-container">
                     <div class="modal-body">
                         <slot name="body">
                             <ul class="nav nav-tabs">
